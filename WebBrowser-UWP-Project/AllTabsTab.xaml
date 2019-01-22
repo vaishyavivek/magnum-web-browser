@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="WebBrowser_UWP_Project.AllTabsTab"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WebBrowser_UWP_Project"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"  Loaded="Page_Loaded" KeyDown="Page_KeyDown">
+
+    <RelativePanel Background="Wheat">
+        <Button x:Name="CloseWindowbtn" 
+                FontFamily="Segoe MDL2 Assets" Content="&#xE10A;"
+                Width="40" Height="40" Background="Gray" 
+                Click="CloseWindowbtn_Click"
+                RelativePanel.AlignRightWithPanel="True"
+                RelativePanel.AlignTopWithPanel="True"/>
+        <RelativePanel x:Name="MainPanel">
+
+        </RelativePanel>
+        <Button x:Name="NewTabBtn" 
+                FontFamily="Segoe MDL2 Assets" Content="&#xE109;"
+                Width="40" Height="40" Background="SkyBlue"
+                Click="NewTabBtn_Click"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.AlignLeftWithPanel="True"/>
+        <Button x:Name="NewIncognitoTabBtn" 
+                FontFamily="Segoe MDL2 Assets" Content="&#xE156;"
+                Width="40" Height="40" Background="Firebrick"
+                Click="NewIncognitoTabBtn_Click"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.RightOf="NewTabBtn"/>
+    </RelativePanel>
+</Page>

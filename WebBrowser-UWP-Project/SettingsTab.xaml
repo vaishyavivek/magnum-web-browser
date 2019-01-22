@@ -1,0 +1,162 @@
+﻿<Page
+    x:Class="WebBrowser_UWP_Project.SettingsTab"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WebBrowser_UWP_Project"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Page_Loaded">
+
+    <ScrollViewer Background="Gray">
+    <RelativePanel Background="Gray">
+        <TextBlock x:Name="Head" 
+                   FontFamily="algerian" FontSize="40" Margin="20" Text="Settings"
+                   RelativePanel.AlignTopWithPanel="True"/>
+        
+        <TextBlock x:Name="IncogntoText" FontSize="15" Margin="10" Text="Incognito Browsing"
+                   RelativePanel.Below="Head"/>
+        
+        <ToggleSwitch x:Name="Incognito" Width="50" Height="30" Margin="10" 
+                      RelativePanel.Below="IncogntoText" Toggled="Incognito_Toggled" />
+        
+        <TextBlock x:Name="BrowsingExperienceText" Margin="10"
+                   FontFamily="calibri" FontSize="25" Text="Browser Experience"
+                   RelativePanel.Below="Incognito" />
+        
+        <TextBlock x:Name="BELine" Text="-----------------------------" FontSize="25"
+                   RelativePanel.Below="BrowsingExperienceText" Margin="10"/>
+        
+        <TextBlock x:Name="StartupPageText" Margin="10"
+                   FontFamily="Calibri" FontSize="15" Text="Page to Display when Browser Starts"
+                   RelativePanel.Below="BELine"/>
+        
+        <ComboBox x:Name="StartupPageCB" FontFamily="Times New Roman" Margin="10"
+                  RelativePanel.Below="StartupPageText" Width="200" SelectionChanged="StartupPageCB_SelectionChanged">
+            <ComboBoxItem Content="Blank Page"/>
+            <ComboBoxItem Content="Specific Page"/>
+            <ComboBoxItem Content="Default Start Page" />
+        </ComboBox>
+
+        <TextBlock x:Name="SpecificPageText" Margin="10"
+                   FontFamily="Calibri" FontSize="15" Text="Set Specific Page"  
+                   RelativePanel.Below="StartupPageCB"/>
+
+        <TextBox x:Name="SpecificPageTB" Width="200" Margin="10"
+                 RelativePanel.Below="SpecificPageText" 
+                 IsSpellCheckEnabled="False"
+                 KeyDown="SpecificPageTB_KeyDown" />
+
+        <TextBlock x:Name="SearchEngineText" Margin="10"
+                   FontFamily="Calibri" FontSize="15" Text="Choose Default Search Engine"  
+                   RelativePanel.Below="SpecificPageTB"/>
+
+        <ComboBox x:Name="SearchEngineCB" FontFamily="Times New Roman" Margin="10"
+                  RelativePanel.Below="SearchEngineText" Width="200"
+                  SelectionChanged="SearchEngineCB_SelectionChanged">
+            <ComboBoxItem Content="Google"/>
+            <ComboBoxItem Content="Bing"/>
+            <ComboBoxItem Content="Yahoo"/>
+            <ComboBoxItem Content="Duck Duck Go"/>
+        </ComboBox>
+
+        <TextBlock x:Name="PrivacyDownloadsText" Margin="10"
+                   FontFamily="Calibri" FontSize="25" Text="Privacy and Downloads"
+                   RelativePanel.Below="SearchEngineCB" />
+
+        <TextBlock x:Name="PDLine" Text="-----------------------------" FontSize="25"
+                   RelativePanel.Below="PrivacyDownloadsText" Margin="10"/>
+
+        <TextBlock x:Name="ClearDataText" Margin="10"
+                   FontFamily="calibri" FontSize="15" Text="Clear Your Browsing Data"
+                   RelativePanel.Below="PDLine" />
+
+        <Button x:Name="ClearDataBTN" Content="Select what to Clear" Margin="10"
+                    RelativePanel.Below="ClearDataText"
+                    Click="ClearDataBTN_Click"/>
+
+        <TextBlock x:Name="AskDownloadsText" Margin="10"
+                   FontFamily="calibri" FontSize="15" Text="Asks for Downloads each time"
+                   RelativePanel.Below="ClearDataBTN" />
+        
+        <ToggleSwitch x:Name="AskDownloadsTS" Width="50" Height="30" Margin="10" 
+                      RelativePanel.Below="AskDownloadsText"/>
+
+        <TextBlock x:Name="DirectoryText" Margin="10"
+                   FontFamily="calibri" FontSize="15" Text="Asks for Downloads each time"
+                   RelativePanel.Below="AskDownloadsTS" />
+        
+        <TextBox x:Name="DirectoryTB" Width="200" Margin="10"
+                 RelativePanel.Below="DirectoryText"/>
+<!--        
+        <TextBlock x:Name="ExtensionsText" Margin="10"
+                   FontFamily="calibri" FontSize="25" Text="Extensions"
+                   RelativePanel.Below="DirectoryTB" />
+         <TextBlock x:Name="ELine" Text="" FontSize="25"
+                   RelativePanel.Below="ExtensionsText" Margin="10"/>
+
+        <TextBlock x:Name="AdBlockText" Margin="10"
+                   FontFamily="calibri" FontSize="15" Text="Enable AdBlock"
+                   RelativePanel.Below="ELine" />
+
+        <ToggleSwitch x:Name="AdBlockTS" Width="50" Height="30" Margin="10" 
+                      RelativePanel.Below="AdBlockText"/>
+
+        <TextBlock x:Name="VPNText" Margin="10"
+                   FontFamily="calibri" FontSize="15" Text="Enable VPN"
+                   RelativePanel.Below="AdBlockTS" />
+
+        <ToggleSwitch x:Name="VPNTS" Width="50" Height="30" Margin="10" 
+                      RelativePanel.Below="VPNText"/>
+
+        <TextBlock x:Name="UserAgentText" Margin="10"
+                   FontFamily="Calibri" FontSize="15" Text="Choose Default User Agent"  
+                   RelativePanel.Below="VPNTS"/>
+
+        <ComboBox x:Name="UserAgentCB" FontFamily="Times New Roman" Margin="10"
+                  RelativePanel.Below="UserAgentText" Width="200">
+                <ComboBoxItem Content="Mozilla Firefox"/>
+                <ComboBoxItem Content="Google Chrome"/>
+                <ComboBoxItem Content="Internet Explorer 9"/>
+                <ComboBoxItem Content="UC Browser (Mobile)"/>
+                <ComboBoxItem Content="Default" IsSelected="True"/>
+            </ComboBox>
+
+            <TextBlock x:Name="YouTubeDownloaderText" Margin="10"
+                   FontFamily="Calibri" FontSize="15" Text="Default Format for downloading Videos"  
+                   RelativePanel.Below="UserAgentCB"/>
+
+            <ComboBox x:Name="YoutubeDownloaderCB" FontFamily="Times New Roman" Margin="10"
+                  RelativePanel.Below="YouTubeDownloaderText" Width="200">
+                <ComboBoxItem Content="MP4 (720P)"/>
+                <ComboBoxItem Content="MP4 (480P)" IsSelected="True"/>
+                <ComboBoxItem Content="WEBM (480P)"/>
+                <ComboBoxItem Content="3GP (240P)"/>
+                <ComboBoxItem Content="MP3 (Audio)"/>
+            </ComboBox>         -->
+
+
+            <TextBlock x:Name="AboutText" Margin="10"
+                   FontFamily="Calibri" FontSize="25" Text="About Us"
+                   RelativePanel.Below="DirectoryTB" />
+
+            <TextBlock x:Name="AboutLine" Text="-----------------------------" FontSize="25"
+                   RelativePanel.Below="AboutText" Margin="10"/>
+
+            <TextBlock x:Name="titleText" Margin="10" FontWeight="Bold"
+                   FontFamily="Calibri" FontSize="20" Text="Stormtech Magnum"
+                   RelativePanel.Below="AboutLine" />
+
+            <TextBlock x:Name="versionText" Margin="10"
+                   FontFamily="Calibri" FontSize="15" Text="Beta 0.1.4"
+                   RelativePanel.Below="titleText"/>
+
+            <TextBlock x:Name="blogText" Margin="10"
+                   FontFamily="Calibri" FontSize="15" Text="Please leave a comment on our official blog"
+                   RelativePanel.Below="versionText"/>
+
+            <HyperlinkButton x:Name="blogBtn" Content="MyTechStreet" Margin="10"
+                             RelativePanel.Below="blogText" Click="blogBtn_Click"/>
+
+        </RelativePanel>
+    </ScrollViewer>
+</Page>

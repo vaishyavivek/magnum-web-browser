@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="WebBrowser_UWP_Project.BookmarksTab"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WebBrowser_UWP_Project"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" 
+    Loaded="Page_Loaded"
+    ManipulationMode="All"
+    ManipulationStarted="Page_ManipulationStarted"
+    ManipulationDelta="Page_ManipulationDelta">
+
+
+    <RelativePanel Background="Gray" >
+        <RelativePanel x:Name="TopButtonBar"
+                       RelativePanel.AlignTopWithPanel="True">
+            <Button x:Name="Bookmarkbtn" 
+                            FontFamily="Segoe MDL2 Assets" Content="&#xE728;"
+                            Width="60" Height="30" Background="BurlyWood" />
+            <Button x:Name="Historybtn" 
+                            FontFamily="Segoe MDL2 Assets" Content="&#xE2AD;"
+                            Width="60" Height="30" Background="Transparent" 
+                            RelativePanel.RightOf="Bookmarkbtn"
+                            Click="Historybtn_Click"/>
+            <Button x:Name="Downloadsbtn" 
+                            FontFamily="Segoe MDL2 Assets" Content="&#xE896;"
+                            Width="60" Height="30" Background="Transparent" 
+                            Click="Downloadbtn_Click"
+                            RelativePanel.RightOf="Historybtn"/>
+        </RelativePanel>
+        
+        <TextBlock x:Name="BookmarksTitle"
+                   FontFamily="Algerian" FontSize="25" 
+                   Text="Bookmarks" Margin="10"
+                   RelativePanel.Below="TopButtonBar"/>
+        <ListBox x:Name="BookmarkTitleList" TabNavigation="Cycle" 
+                 VerticalAlignment="Bottom" Background="Gray"
+                 SelectionChanged="BookmarksList_SelectionChanged"               
+                 RelativePanel.Below="BookmarksTitle"/>
+    </RelativePanel>
+</Page>

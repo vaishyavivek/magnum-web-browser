@@ -1,0 +1,2 @@
+MainPackage=C:\Users\vivek\OneDrive\Documents\Visual Studio 2015\Projects\WebBrowser-UWP-Project\WebBrowser-UWP-Project\bin\x86\Debug\WebBrowser-UWP-Project_0.1.4.0_x86_Debug.appx
+SymbolPackage=C:\Users\vivek\OneDrive\Documents\Visual Studio 2015\Projects\WebBrowser-UWP-Project\WebBrowser-UWP-Project\AppPackages\WebBrowser-UWP-Project_0.1.4.0_Debug_Test\WebBrowser-UWP-Project_0.1.4.0_x86_Debug.appxsym
